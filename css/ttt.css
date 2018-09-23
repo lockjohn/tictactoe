@@ -1,0 +1,16 @@
+.board {
+    list-style: none;
+    display: flex;
+    flex-flow: row wrap;
+    width: 300px;
+    height: 300px;
+}
+.square {
+    flex-basis: 88px;
+    background-color: lightgrey;
+    border: 6px black solid;
+}
+
+.square:hover {
+    background-color: gold;
+}

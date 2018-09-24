@@ -4,27 +4,63 @@ class View {
     this.game = game;
 
     this.setupBoard($container);
+    this.bindEvents();
   }
 
   //install event handler for li's and clicks and bind event to makeMove which will call playMove(pos);
   bindEvents() {
-    this.$container.on('click', "li", event => {
+    this.$container.on("click", "li", event => {
       const $square = $(event.currentTarget);
+      console.log($square);
       this.makeMove($square);
-    })
+    });
   }
 
   makeMove($square) {
-    this.game.playMove($square);
+    const pos = $square.data("pos");
+
+    try {    
+      this.game.playMove(pos); 
+    } catch (e) {
+      alert("This " + e.msg.toLowerCase());
+      return;
+     }
+
+    $square
+      .html(`${this.game.currentPlayer}`)
+      .addClass("played")
+      .removeClass("square");
+
+    if (this.game.isOver()) {
+      this.$container.off('click');
+      this.$container.addClass('gameOver');
+      
+      const winner = this.game.winner();
+      const $figcaption = $("<figcaption>");
+
+      if (winner) {
+        this.$container.addClass(`winner-${winner}`);
+        $figcaption.html(`You win, ${winner}`);
+      } else {
+        figcaption.html(`It's a draw`);
+      }
+
+      this.$container.append($figcaption);
+    }
   }
 
   setupBoard($container) {
-  const listElements = [];
-  for (let i=0; i < 9; i++) {
-    listElements.push("<li class=\"square\"></li>");
-  }
-  const $board = $("<ul class=\"board\"></ul>");
-  $board.appendTo($container).append( listElements.join( "" ) );
+    const $board = $('<ul class="board"></ul>').appendTo($container);
+
+    for (let i = 0; i < 3; i++) {
+      for (let j = 0; j < 3; j++) {
+        let $li = $("<li>");
+        $li
+          .data("pos", [i, j])
+          .addClass("square")
+          .appendTo($board);
+      }
+    }
   }
 }
 

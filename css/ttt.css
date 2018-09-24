@@ -4,13 +4,35 @@
     flex-flow: row wrap;
     width: 300px;
     height: 300px;
+    padding: 0;
+    /* border: 6px black solid; */
+    border-radius: 10px;
 }
 .square {
     flex-basis: 88px;
     background-color: lightgrey;
     border: 6px black solid;
+    border-radius: 10px;
 }
 
 .square:hover {
-    background-color: gold;
+    background-color: yellow;
+}
+
+.played {
+    flex-basis: 88px;
+    background-color: aliceblue;
+    border: 6px black solid;
+}
+
+.gameOver{
+
+}
+
+.x {
+    
+}
+
+.o {
+    
 }

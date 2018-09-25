@@ -1,0 +1,24 @@
+{
+  "name": "tictactoe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "webpack --watch ./js/main.js -o ./js/bundle.js --mode=development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lockjohn/tictactoe.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lockjohn/tictactoe/issues"
+  },
+  "homepage": "https://github.com/lockjohn/tictactoe#readme"
+}

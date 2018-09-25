@@ -29,20 +29,24 @@ class View {
     $square
       .html(`${this.game.currentPlayer}`)
       .addClass("played")
+      .addClass(`${this.game.currentPlayer}`)
       .removeClass("square");
 
     if (this.game.isOver()) {
       this.$container.off('click');
-      this.$container.addClass('gameOver');
+      this.$container.addClass('game-over');
       
       const winner = this.game.winner();
+      
       const $figcaption = $("<figcaption>");
 
       if (winner) {
         this.$container.addClass(`winner-${winner}`);
         $figcaption.html(`You win, ${winner}`);
+
       } else {
-        figcaption.html(`It's a draw`);
+        console.log('got here in conditional')
+        $figcaption.html(`It's a draw`);
       }
 
       this.$container.append($figcaption);

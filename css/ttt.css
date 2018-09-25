@@ -1,17 +1,44 @@
+html, body, figure, figcaption, ul, li, h1 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  text-align: inherit;
+}
+
+body {
+  font-family: sans-serif;
+  text-align: center;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 60px;
+  margin: 30px;
+}
+
+li {
+    display:inline-block;
+    height: 90px;
+    margin: 8px;
+    align-self: center;
+}
+
 .board {
+    margin: 30px auto;
     list-style: none;
     display: flex;
     flex-flow: row wrap;
-    width: 300px;
-    height: 300px;
-    padding: 0;
-    /* border: 6px black solid; */
+    justify-content: center;
+    width: 360px;
+    height: 370px;
     border-radius: 10px;
+    background-color: dodgerblue;
 }
 .square {
     flex-basis: 88px;
-    background-color: lightgrey;
-    border: 6px black solid;
+    background-color: slategray;
+    border: 6px #49fb35 solid;
     border-radius: 10px;
 }
 
@@ -20,19 +47,30 @@
 }
 
 .played {
+    color: white;
+    font-size: 5em;
     flex-basis: 88px;
-    background-color: aliceblue;
-    border: 6px black solid;
+    background-color: magenta;
+    border: 6px cyan solid;
+    border-radius: 10px;
 }
 
-.gameOver{
-
+.winner-x .x,
+.winner-o .o {
+  background: yellow;
+  color: red;
 }
 
-.x {
-    
+.game-over  li {
+  color: black;
+  cursor: default;
+  background: white;
 }
 
-.o {
-    
+.x, .o {    
+ text-align: center;
+}
+
+figcaption {
+  font-size: 30px;
 }

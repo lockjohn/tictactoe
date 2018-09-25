@@ -84,14 +84,16 @@ class Board {
       for (let posIdx = 0; posIdx < 3; posIdx++) {
         const pos = posSeq[posIdx];
         const mark = this.grid[pos[0]][pos[1]];
-
         if (mark != targetMark) {
           winner = false;
         }
       }
 
       if (winner) {
-        return targetMark;
+        if (targetMark == 'o') {
+          return 'x'
+        } else {
+        return 'o' }
       }
     }
 
